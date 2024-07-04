@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Chat Box and FAQ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Library Support</h1>
+        <div class="chat-box">
+            <div class="messages" id="messages">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <input type="text" id="chatInput" placeholder="Type your message here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <ul>
+                <li><b>Q: What are the library hours?</b> <br>A: The library is open from 9 AM to 8 PM, Monday to Friday.</li>
+                <li><b>Q: How can I get a library card?</b> <br>A: You can apply for a library card online or in-person at the library.</li>
+                <li><b>Q: Can I renew books online?</b> <br>A: Yes, you can renew books through our online portal.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    function sendMessage() {
+        const input = document.getElementById('chatInput');
+        const message = input.value;
+        if (message.trim() !== '') {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = "You: " + message;
+            document.getElementById('messages').appendChild(messageElement);
+            input.value = '';
+
+            // Simulate a response from the bot
+            setTimeout(() => {
+                const responseElement = document.createElement('div');
+                responseElement.textContent = "Library Bot: Thank you for your message. We will get back to you shortly.";
+                document.getElementById('messages').appendChild(responseElement);
+            }, 1000);
+        }
+    }
+</script>
+</html>
